@@ -1,8 +1,8 @@
 from numpy import array, dot, exp
 from datetime import datetime
 
-weight_logs = open('~/weight_logs.csv', 'w')
-program_logs = open('~/program_logs.txt', 'w')
+weight_logs = open('weight_logs.csv', 'w')
+program_logs = open('program_logs.txt', 'w')
 
 program_logs.write(
     str(datetime.now())
