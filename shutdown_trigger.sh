@@ -1,1 +1,1 @@
-python shutdown-press-simple.py
+sudo python shutdown-press-simple.py
