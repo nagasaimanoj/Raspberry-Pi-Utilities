@@ -1,11 +1,13 @@
 from numpy import array, dot, exp
 from datetime import datetime
 
-txt_file = open('txt_file.txt', 'w')
-log_file = open('log_file.csv', 'w')
+weight_logs = open('weight_logs.csv', 'w')
+program_logs = open('program_logs', 'w')
 
-txt_file.write(str(datetime.now())+'\n')
-log_file.write('time,values\n')
+program_logs.write(
+    str(datetime.now())
+    + '\n'
+)
 
 input_set = array([
     [0, 0, 1],
@@ -28,6 +30,12 @@ weights = array([
 ])
 
 while True:
+    weight_logs.write(
+        str(weights[0][0]) + ',' +
+        str(weights[1][0]) + ',' +
+        str(weights[2][0])+'\n'
+    )
+
     mat_mul = dot(input_set, weights)
 
     prediction = 1 / (1 + exp(-mat_mul))
@@ -42,12 +50,12 @@ while True:
         break
 
     weights = new_weights
-    log_file.write(str(datetime.now()) + ',' + str(weights)+'\n')
 
 
-txt_file.write(
-    str("[1, 0, 0] =" + str(1 / (1 + exp(-(dot(array([1, 0, 0]), weights))))))+'\n')
-txt_file.write(str(datetime.now()))
+program_logs.write(
+    "[1, 0, 0] = "
+    + str(1 / (1 + exp(-(dot(array([1, 0, 0]), weights)))))
+    + '\n'
+)
 
-txt_file.close()
-log_file.close()
+program_logs.write(str(datetime.now()))
