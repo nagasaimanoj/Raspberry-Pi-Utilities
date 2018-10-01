@@ -1,8 +1,7 @@
-import os
+from os import system
+from gpiozero import Button
 
-try:
-    from gpiozero import Button
-    Button(21).wait_for_press()
-    os.system("sudo poweroff")
-except Exception as e:
-    open('console_log.txt', 'a').write(str(e))
+button_21 = Button(21)
+
+button_21.wait_for_press()
+system("sudo init 0")
