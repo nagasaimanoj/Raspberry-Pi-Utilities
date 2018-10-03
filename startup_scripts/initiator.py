@@ -12,7 +12,7 @@ parallel_scripts = [
 for each_script in parallel_scripts:
     Process(
         target=system,
-        args=('python3 ' + each_script,)
+        args=('python3 ' + each_script + '\n',)
     ).start()
 
 
@@ -23,4 +23,4 @@ sequence_scripts = [
 ]
 
 for each_script in sequence_scripts:
-    system('python3 ' + each_script)
+    system('python3 ' + each_script + '\n')

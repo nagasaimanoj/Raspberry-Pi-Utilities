@@ -7,4 +7,4 @@ cmd_list = [
 ]
 
 for each_cmd in cmd_list:
-    system('sudo apt-get ' + each_cmd)
+    system('sudo apt-get ' + each_cmd + '\n')
