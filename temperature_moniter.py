@@ -1,7 +1,8 @@
-import os
-import time
+from os import popen
+from time import sleep
 
 while True:
-    temp = os.popen("vcgencmd measure_temp").readline()
-    print(temp.replace("temp=", ""))
-    time.sleep(1)
+    temp = popen("vcgencmd measure_temp").readline()
+    print(temp)
+
+    sleep(1)
