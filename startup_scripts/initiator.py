@@ -1,17 +1,25 @@
 from multiprocessing import Process
 from os import system
 
-# running system update on startup
-system('python update.py')
 
-# all startup scripts
-script_list = [
-    'restart-press-simple.py',
-    'shutdown-press-simple.py'
+# sequence scripts
+sequence_scripts = [
+    'update.py',
+    'update_repo.py'
 ]
 
-# running startup apps as parallel processes
-for each_script in script_list:
+for each_script in sequence_scripts:
+    system('python3 ' + each_script)
+
+
+# parallel scripts
+parallel_scripts = [
+    'restart-press-simple.py',
+    'shutdown-press-simple.py',
+    'update_repo.py'
+]
+
+for each_script in parallel_scripts:
     Process(
         target=system,
         args=('python3 ' + each_script,)
