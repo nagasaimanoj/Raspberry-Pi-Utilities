@@ -1,4 +1,5 @@
 from os import system
+
 from gpiozero import Button
 
 button_21 = Button(21)
