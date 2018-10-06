@@ -1,5 +1,6 @@
-from RPi import GPIO
 import time
+
+from RPi import GPIO
 
 pins = [2, 3, 4, 14]
 
