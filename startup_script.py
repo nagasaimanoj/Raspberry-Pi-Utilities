@@ -22,14 +22,6 @@ def update_repo():
     system('git pull origin master \n')
 
 
-def update_linux():
-    # updates / upgrades linux
-    system('sudo apt-get update \n')
-    system('sudo apt-get upgrade -y \n')
-    system('sudo apt-get dist-upgrade -y \n')
-
-
 Process(target=restart).start()
 Process(target=shutdown).start()
 Process(target=update_repo).start()
-Process(target=update_linux).start()
