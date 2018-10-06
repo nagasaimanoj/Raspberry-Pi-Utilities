@@ -8,7 +8,6 @@ GPIO.setup(pins, GPIO.OUT)
 
 while True:
     for each_pin in pins:
-        time.sleep(0.5)
         GPIO.output(each_pin,  GPIO.LOW)
 
         time.sleep(0.5)
