@@ -1,4 +1,4 @@
-import time
+from time import sleep
 
 from RPi import GPIO
 
@@ -9,7 +9,6 @@ GPIO.setup(pins, GPIO.OUT)
 
 while True:
     for each_pin in pins:
-        GPIO.output(each_pin,  GPIO.LOW)
-
-        time.sleep(0.5)
-        GPIO.output(each_pin,  GPIO.HIGH)
+        GPIO.output(each_pin,  True)
+        sleep(0.5)
+        GPIO.output(each_pin,  False)
