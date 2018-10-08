@@ -16,12 +16,12 @@ def shutdown():
     system('sudo init 0')
 
 
-def update_repo():
-    # updates the current repo with remote repo
+def update_dir():
+    # updates the current dir with remote repo
     system('cd /hpme/pi/GNSMK/Raspberry-Pi-Utilities')
     system('git pull origin master')
 
 
 Process(target=restart).start()
 Process(target=shutdown).start()
-Process(target=update_repo).start()
+Process(target=update_dir).start()
