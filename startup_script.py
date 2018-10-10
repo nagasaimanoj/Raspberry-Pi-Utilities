@@ -18,7 +18,7 @@ def restart():
 
 def update_dir():
     # updates Utilities scripts
-    system('cd /hpme/pi/GNSMK/Raspberry-Pi-Utilities')
+    system('cd /home/pi/GNSMK/Raspberry-Pi-Utilities')
     system('git pull origin master')
 
 
