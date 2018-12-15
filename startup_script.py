@@ -32,7 +32,7 @@ def restart():
 def update_dir():
     # updates Utilities scripts
     os.chdir('/home/pi/GNSMK/Raspberry-Pi-Utilities')
-    logging.debug('cwd is not git dir')
+    logging.debug('cwd is now git dir')
 
     git_result = os.system('git pull origin master')
     logging.info('git_result : ' + str(git_result))
