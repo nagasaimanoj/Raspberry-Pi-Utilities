@@ -1,5 +1,5 @@
 from multiprocessing import Process
-from os import popen, system
+from os import chdir, popen, system
 from time import sleep
 
 from gpiozero import Button
@@ -19,8 +19,9 @@ def restart():
 
 def update_dir():
     # updates Utilities scripts
-    system('cd /home/pi/GNSMK/Raspberry-Pi-Utilities')
+    chdir('/home/pi/GNSMK/Raspberry-Pi-Utilities')
     system('git pull origin master')
+
 
 def show_temp():
     # prints processor temperature for every second
