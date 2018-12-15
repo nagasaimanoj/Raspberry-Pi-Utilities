@@ -11,6 +11,4 @@ GPIO_status = int(argv[2])
 
 GPIO.setup(GPIO_pin, GPIO.OUT)
 
-GPIO.output(
-    GPIO_pin, GPIO_status
-)
+GPIO.output(GPIO_pin, GPIO_status)

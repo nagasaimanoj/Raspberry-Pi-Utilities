@@ -9,8 +9,6 @@ GPIO.setwarnings(False)
 GPIO_pin = int(argv[1])
 GPIO.setup(GPIO_pin, GPIO.OUT)
 
-current_state = not GPIO.input(
-    GPIO_pin
-)
+current_state = not GPIO.input(GPIO_pin)
 
 print(int(current_state))
