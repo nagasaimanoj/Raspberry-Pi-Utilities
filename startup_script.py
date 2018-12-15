@@ -35,14 +35,14 @@ def update_dir():
     logging.debug('cwd is not git dir')
 
     git_result = os.system('git pull origin master')
-    logging.info('git_result : ' + git_result)
+    logging.info('git_result : ' + str(git_result))
 
 
 def show_temp():
     # prints processor temperature for every second
     while True:
         temp = os.popen("vcgencmd measure_temp").readline()
-        logging.debug('cpu_temp' + temp)
+        logging.debug('cpu_temp' + str(temp))
 
         time.sleep(1)
 
