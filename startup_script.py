@@ -42,7 +42,7 @@ def show_temp():
     # prints processor temperature for every second
     while True:
         temp = os.popen("vcgencmd measure_temp").readline()
-        logging.debug('cpu_temp' + temp)
+        logging.debug('cpu_temp' + str(temp))
 
         time.sleep(1)
 
