@@ -1,5 +1,6 @@
 from multiprocessing import Process
-from os import system
+from os import popen, system
+from time import sleep
 
 from gpiozero import Button
 
@@ -21,7 +22,15 @@ def update_dir():
     system('cd /home/pi/GNSMK/Raspberry-Pi-Utilities')
     system('git pull origin master')
 
+def show_temp():
+    # prints processor temperature for every second
+    while True:
+        temp = popen("vcgencmd measure_temp").readline()
+        print(temp)
+
+        sleep(1)
 
 Process(target=restart).start()
 Process(target=shutdown).start()
 Process(target=update_dir).start()
+Process(target=show_temp).start()
