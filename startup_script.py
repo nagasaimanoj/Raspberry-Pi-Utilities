@@ -74,8 +74,8 @@ func_list = [
 ]
 
 for each_func in func_list:
-    log('starting ' + each_func.__name__)
+    log('starting ' + each_func.__name__ + 'func')
 
     Process(target=each_func).start()
 
-    log(each_func.__name__ + 'started')
+    log(each_func.__name__ + ' func started')
