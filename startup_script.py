@@ -46,14 +46,10 @@ def update_dir():
     log('changing git dir')
     path_change_err = chdir('git_dir_path')
 
-    if system('pwd') == git_dir_path:
-        log('path change success')
+    git_result = os.system('git pull origin master')
+    log('git result ' + git_result)
 
-        git_result = os.system('git pull origin master')
-
-        log('utilities dir updated')
-    else:
-        log('path change fail' + path_change_err)
+    log('utilities dir updated')
 
 
 def show_temp():
