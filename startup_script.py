@@ -3,7 +3,6 @@ import multiprocessing
 import os
 import time
 
-import git
 import gpiozero
 
 logging.basicConfig(
@@ -40,12 +39,21 @@ def restart():
 def update_dir():
     # updates Utilities scripts
 
+    git_dir_path = '/home/pi/GNSMK/Raspberry-Pi-Utilities'
+
     log('updating utilities dir')
 
-    repo = git.Repo('/home/pi/GNSMK/Raspberry-Pi-Utilities/')
-    repo.remotes.origin.pull()
+    log('changing git dir')
+    path_change_err = os.chdir('git_dir_path')
 
-    log('utilities dir updated')
+    if os.system('pwd') == git_dir_path:
+        log('path change success')
+
+        git_result = os.system('git pull origin master')
+
+        log('utilities dir updated')
+    else:
+        log('path change fail' + path_change_err)
 
 
 def show_temp():
