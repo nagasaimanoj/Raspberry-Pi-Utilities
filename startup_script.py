@@ -3,6 +3,7 @@ import multiprocessing
 import os
 import time
 
+import git
 import gpiozero
 
 logging.basicConfig(
@@ -34,11 +35,8 @@ def restart():
 def update_dir():
     # updates Utilities scripts
 
-    os.chdir('/home/pi/GNSMK/Raspberry-Pi-Utilities')
-    logging.debug('cwd is now git dir')
-
-    git_result = os.system('git pull origin master')
-    logging.info('git_result : ' + str(git_result))
+    repo = git.Repo('/home/pi/GNSMK/Raspberry-Pi-Utilities/')
+    repo.remotes.origin.pull()
 
 
 def show_temp():
