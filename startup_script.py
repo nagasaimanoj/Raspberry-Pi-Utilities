@@ -14,10 +14,15 @@ logging.basicConfig(
 )
 
 
+def log(message):
+    print(message)
+    logging.debug(message)
+
+
 def shutdown():
     # GPIO_21 + GND = shutdown
 
-    logging.debug('waiting for shutdown trigger')
+    log('waiting for shutdown trigger')
     gpiozero.Button(21).wait_for_press()
 
     os.system('sudo init 0')
@@ -26,7 +31,7 @@ def shutdown():
 def restart():
     # GPIO_26 + GND  = restart
 
-    logging.debug('waiting for restart trigger')
+    log('waiting for restart trigger')
     gpiozero.Button(26).wait_for_press()
 
     os.system('sudo init 6')
@@ -35,8 +40,12 @@ def restart():
 def update_dir():
     # updates Utilities scripts
 
+    log('updating utilities dir')
+
     repo = git.Repo('/home/pi/GNSMK/Raspberry-Pi-Utilities/')
     repo.remotes.origin.pull()
+
+    log('utilities dir updated')
 
 
 def show_temp():
@@ -44,7 +53,7 @@ def show_temp():
 
     while True:
         temp = os.popen("vcgencmd measure_temp").readline()
-        logging.debug('cpu_temp' + str(temp))
+        log('cpu_temp' + str(temp))
 
         time.sleep(1)
 
@@ -57,8 +66,8 @@ func_list = [
 ]
 
 for each_func in func_list:
-    logging.info('starting ' + each_func.__name__)
+    log('starting ' + each_func.__name__)
 
     multiprocessing.Process(target=each_func).start()
 
-    logging.info(each_func.__name__ + 'started')
+    log(each_func.__name__ + 'started')
