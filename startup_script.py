@@ -24,7 +24,7 @@ def shutdown():
     log('waiting for shutdown trigger')
     Button(21).wait_for_press()
 
-    system('sudo shutdown')
+    system('sudo poweroff')
 
 
 def restart():
