@@ -7,7 +7,7 @@ import git
 import gpiozero
 
 logging.basicConfig(
-    filename='natalie.log',
+    filename='/home/pi/GNSMK/natalie.log',
     level=logging.DEBUG,
     format='%(asctime)s %(levelname)-8s %(message)s',
     datefmt='%Y-%m-%d %H:%M:%S'
