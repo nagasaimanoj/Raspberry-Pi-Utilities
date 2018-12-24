@@ -24,16 +24,16 @@ def shutdown():
     log('waiting for shutdown trigger')
     Button(21).wait_for_press()
 
-    system('sudo init 0')
+    system('sudo shutdown')
 
 
 def restart():
-    # GPIO_26 + GND  = restart
+    # GPIO_26 + GND  = reboot
 
     log('waiting for restart trigger')
     Button(26).wait_for_press()
 
-    system('sudo init 6')
+    system('sudo reboot')
 
 
 def update_dir():
