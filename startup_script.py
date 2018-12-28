@@ -24,6 +24,7 @@ def shutdown():
     log('waiting for shutdown trigger')
     Button(21).wait_for_press()
 
+    log('shutdown triggered')
     system('sudo poweroff')
 
 
@@ -33,6 +34,7 @@ def restart():
     log('waiting for restart trigger')
     Button(26).wait_for_press()
 
+    log('reboot triggered')
     system('sudo reboot')
 
 
@@ -70,8 +72,8 @@ func_list = [
 ]
 
 for each_func in func_list:
-    log('starting ' + each_func.__name__ + 'func')
+    log(each_func.__name__ + '()')
 
     Process(target=each_func).start()
 
-    log(each_func.__name__ + ' func started')
+    log(each_func.__name__ + ' -- started')
