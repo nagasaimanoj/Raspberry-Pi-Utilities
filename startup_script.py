@@ -46,7 +46,7 @@ def update_dir():
     log('updating utilities dir')
 
     log('changing git dir')
-    path_change_err = chdir(git_dir_path)
+    _ = chdir(git_dir_path)
 
     git_result = system('git pull origin master')
     log('git result ' + str(git_result))
